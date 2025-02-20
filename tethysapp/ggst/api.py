@@ -88,9 +88,8 @@ def region_zip_timeseries(request):
             return JsonResponse({"error": f"Error processing request: {e}"})
 
 
-
-@controller(name="get-region-timeseries", url="ggst/api/getRegionTimeseries/")
 @api_view(["GET"])
+@controller(name="get-region-timeseries", url="ggst/api/getRegionTimeseries/")
 @authentication_classes(
     (
         TokenAuthentication,
@@ -124,8 +123,8 @@ def subset_region_api(request):
 
             return JsonResponse(json_obj)
 
-@controller(name="get-storage-options", url="ggst/api/getStorageOptions/")
 @api_view(["GET"])
+@controller(name="get-storage-options", url="ggst/api/getStorageOptions/")
 def api_get_storage_options(request):
     return_obj = {}
 
@@ -134,8 +133,8 @@ def api_get_storage_options(request):
         return_obj["storage_options"] = options
         return JsonResponse(return_obj)
 
-@controller(name="get-point-values", url="ggst/api/getPointValues/")
 @api_view(["GET"])
+@controller(name="get-point-values", url="ggst/api/getPointValues/")
 def api_get_point_values(request):
     return_obj = {}
 
