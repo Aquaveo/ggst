@@ -14,6 +14,8 @@ from .utils import (
 from tethys_sdk.routing import controller
 
 
+
+@controller(name="subset-region-zipfile", url="ggst/api/subsetRegionZipfile/")
 @api_view(["POST"])
 @authentication_classes(
     (
@@ -21,7 +23,6 @@ from tethys_sdk.routing import controller
         SessionAuthentication,
     )
 )
-@controller(name="subset-region-zipfile", url="ggst/api/subsetRegionZipfile/")
 def subset_region_zip(request):
     if request.method == "POST":
         region_name = None
@@ -50,6 +51,8 @@ def subset_region_zip(request):
             return JsonResponse({"error": f"Error processing request: {e}"})
 
 
+
+@controller(name="region-zip-timeseries", url="ggst/api/zipRegionTimeseries/")
 @api_view(["POST"])
 @authentication_classes(
     (
@@ -57,7 +60,6 @@ def subset_region_zip(request):
         SessionAuthentication,
     )
 )
-@controller(name="region-zip-timeseries", url="ggst/api/zipRegionTimeseries/")
 def region_zip_timeseries(request):
     if request.method == "POST":
         region_name = None
@@ -86,6 +88,8 @@ def region_zip_timeseries(request):
             return JsonResponse({"error": f"Error processing request: {e}"})
 
 
+
+@controller(name="get-region-timeseries", url="ggst/api/getRegionTimeseries/")
 @api_view(["GET"])
 @authentication_classes(
     (
@@ -93,7 +97,6 @@ def region_zip_timeseries(request):
         SessionAuthentication,
     )
 )
-@controller(name="get-region-timeseries", url="ggst/api/getRegionTimeseries/")
 def subset_region_api(request):
     json_obj = {}
 
@@ -121,9 +124,8 @@ def subset_region_api(request):
 
             return JsonResponse(json_obj)
 
-
-@api_view(["GET"])
 @controller(name="get-storage-options", url="ggst/api/getStorageOptions/")
+@api_view(["GET"])
 def api_get_storage_options(request):
     return_obj = {}
 
@@ -132,9 +134,8 @@ def api_get_storage_options(request):
         return_obj["storage_options"] = options
         return JsonResponse(return_obj)
 
-
-@api_view(["GET"])
 @controller(name="get-point-values", url="ggst/api/getPointValues/")
+@api_view(["GET"])
 def api_get_point_values(request):
     return_obj = {}
 
